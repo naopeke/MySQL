@@ -121,36 +121,75 @@ main();
 
 
 // ****************************************************
-// otros codigos que he probado para practicar
-// let createStudents = 'CREATE TABLE students (student_id INT AUTO_INCREMENT PRIMARY KEY, ' +
-        //                                 'first_name VARCHAR(100), '+
-        //                                 'last_name VARCHAR(100), '+
-        //                                 'group_id INT)';
+// otros codigos INSERT
+
+// const mysql = require('mysql2/promise');
+//     let connection;
+// async function main(){
+//     try{
+//         connection = await mysql.createConnection(
+//             {
+//                 host : 'localhost',
+//                 user : 'root',
+//                 password:'MySQL',
+//                 database:'dia1'
+//             }
+//         );
+//         console.log('Connection OK')
+
+
+
+        // let createStudents = 'CREATE TABLE students (student_id INT AUTO_INCREMENT PRIMARY KEY, ' +
+        //                                         'first_name VARCHAR(100), '+
+        //                                         'last_name VARCHAR(100), '+
+        //                                         'group_id INT)';
         // let [resultCreateStudents] = await connection.query(createStudents);
         // console.log('created a table');
         // console.log(resultCreateStudents);
 
 
         // let createGroups = 'CREATE TABLE groups (group_id INT AUTO_INCREMENT PRIMARY KEY, ' +
-        //                                 'name VARCHAR(100))';
+        //                                         'name VARCHAR(100))';
         // let [resultCreateGroups] = await connection.query(createGroups);
         // console.log('created a table');
         // console.log(resultCreateGroups);
 
 
         // let createSubjects = 'CREATE TABLE subjects (subject_id INT AUTO_INCREMENT PRIMARY KEY, ' +
-        //                                 'title VARCHAR(100))';
+        //                                         'title VARCHAR(100))';
         // let [resultCreateSubjects] = await connection.query(createSubjects);
         // console.log('created a table');
         // console.log(resultCreateSubjects);
 
 
-        // let createSubjectTeacher = 'CREATE TABLE subject_teacher (subject_id INT AUTO_INCREMENT PRIMARY KEY, ' +
-        //                                 'teacher_id INT, '+
-        //                                 'group_id INT)';
+        // let createSubjectTeacher = 'CREATE TABLE subject_teacher (subject_id INT, ' +
+        //                                         'teacher_id INT, '+
+        //                                         'group_id INT)';
         // let [resultCreateSubjectTeacher] = await connection.query(createSubjectTeacher);
         // console.log('created a table');
         // console.log(resultCreateSubjectTeacher);
+
+
+        // let createTeachers = 'CREATE TABLE teachers (teacher_id INT AUTO_INCREMENT PRIMARY KEY, ' +
+        //                                           'first_name VARCHAR(60), '+
+        //                                           'last_name VARCHAR(60))';
+        // let [resultCreateTeachers] = await connection.query(createTeachers);
+        // console.log('created a table');
+        // console.log(resultCreateTeachers);
+
+
+        // let createMarks = 'CREATE TABLE marks (mark_id INT AUTO_INCREMENT PRIMARY KEY, ' +
+        //                                             'date DATE, ' +
+        //                                             'mark INT, '+
+        //                                             'student_id INT, '+
+        //                                             'subject_id INT)';
+        // let [resultCreateMarks] = await connection.query(createMarks);
+        // console.log('created a table');
+        // console.log(resultCreateMarks);
+
+
+
+
 
 
         // let insertGroups = "INSERT INTO `groups` (name) VALUES ('6A'), ('6B'), ('7A'), ('7B'), ('8A'), ('8B'), ('9A'), ('9B'), ('10A'), ('10B')";
@@ -171,9 +210,31 @@ main();
         // console.log(resultInsertTeachers);
 
 
-        // let insertSubjectTeachers = "INSERT INTO `subject_teacher` (subject_id, teacher_id, group_id) VALUES (1, 1, 7), (1, 1, 8), (1, 1, 9), (1, 1, 10), (2, 2, 5), (2, 2, 6), (2, 2, 7), (2, 2, 8), ('3', '3', '1'), ('3', '3', '2'),('4', '4', '3'),('5', '5', '4'), ('6', '6', '5'), ('7', '7', '6'), ('8', '8', '7'), ('9', '9', '8'), ('10', '10', '9')";
+        // let insertSubjectTeachers = "INSERT INTO `subject_teacher` (subject_id, teacher_id, group_id) VALUES (1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4), (5, 5, 5), (6, 6, 6), (7, 7, 7), (8, 8, 8), ('9', '9', '9'), ('10', '10', '10'),('4', '4', '3'),('5', '5', '4'), ('6', '6', '5'), ('7', '7', '6'), ('8', '8', '7'), ('9', '9', '8'), ('10', '10', '9')";
         // let [resultInsertSubjectTeachers] = await connection.query(insertSubjectTeachers);
         // console.log('Inserted the data');
         // console.log(resultInsertSubjectTeachers);
 
 
+        // let insertMarks = "INSERT INTO `marks` (date, mark, student_id, subject_id) VALUES ('2013-01-30', 1, 1, 1), ('2013-01-30', 2, 2, 2), ('2013-01-30', 3, 3, 3), ('2013-01-30', 4, 4, 4), ('2020-01-30', 5, 5, 5), ('2020-01-30', 6, 6, 6), ('2021-01-30', 7, 7, 7), ('2021-01-30', 8, 8, 8), ('2022-01-30', '9', '9', '9'), ('2023-01-30', '10', '10', '10')";
+        // let [resultInsertMarks] = await connection.query(insertMarks);
+        // console.log('Inserted the data');
+        // console.log(resultInsertMarks);
+
+
+        // let insertStudents = "INSERT INTO `students` (first_name, last_name, group_id) VALUES ('Takeshi', 'Akisawa', 1), ('Keiko', 'Ishikawa', 2), ('Tomoko', 'Utada', 3), ('Akari', 'Endo', 4), ('Shou','Oyama', 5), ('Shota', 'Kakiuchi', 6), ('Tetsuya','Kikuchi', 7), ('Miquel', 'Kudo', 8), ('Hana', 'Keage', 9), ('Leo', 'Kobayashi', 10)";
+        // let [resultInsertStudents] = await connection.query(insertStudents);
+        // console.log('Inserted the data');
+        // console.log(resultInsertStudents);
+
+        // 
+
+//         await connection.end();
+//     }
+//     catch(err){
+//         console.log(err);
+//         connection.end();
+//     }
+// }
+
+// main();
