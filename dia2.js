@@ -52,11 +52,17 @@ console.log(result3);
 // WHERE mark >= 5
 // AND YEAR(date) = 2023
 
-let sql4 = "DELETE FROM dia1.marks WHERE mark >= 5 AND YEAR(date) = 2023";
-let [result4] = await connection.query(sql4);
-console.log('result4');
-console.log(result4);
+// let sql4 = "DELETE FROM dia1.marks WHERE mark >= 5 AND YEAR(date) = 2023";
+// let [result4] = await connection.query(sql4);
+// console.log('result4');
+// console.log(result4);
 
+
+
+// let sql = "ALTER TABLE `students` ADD COLUMN year_of_admission year;";
+// let [result] = await connection.query(sql);
+// console.log('result');
+// console.log(result);
 
 //5
 // SELECT *
