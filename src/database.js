@@ -4,8 +4,8 @@ const pool = mysql.createPool(
     {
         host        :'localhost',
         user        :'root',
-        password    :'codenotch',
-        database    :'angular',
+        password    :'MySQL',
+        database    :'dia1',
         waitForConnections  :true,
         connectionLimit     :10,
         maxIdle     :10,
