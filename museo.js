@@ -7,7 +7,7 @@ async function main(){
                 host : 'localhost',
                 user : 'root',
                 password:'MySQL',
-                database:'museum2'
+                database:'museum'
             }
         );
         console.log('Connection OK');
@@ -147,6 +147,7 @@ let insert5 = "INSERT INTO `lending` (artifact_id, borrower_first_name, borrower
 let [insertResult5] = await connection.query(insert5);
 console.log('insert5');
 console.log(insertResult5);
+
 
 
 //!1
