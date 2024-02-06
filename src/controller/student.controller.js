@@ -1,5 +1,3 @@
-const express = require('express');
-const app = express();
 const { pool } = require('../database');
 
 
@@ -9,24 +7,25 @@ const getStudents = async (req, res) => {
         if (req.query.id == null){
             sql = 'SELECT * FROM students';
         } else {
-            sql = 'SELECT * FROM students WHERE id=' + req.query.id;
+            sql = 'SELECT * FROM students WHERE student_id=' + req.query.id;
+        }
 
-            let [result] = await pool.query(sql);
-            res.send(result);
-        }
-        }
-        catch(err){
+        let [result] = await pool.query(sql);
+        res.send(result);
+    
+    } catch(err){
             console.log(err);
-        }
+    }
     }
 
 
 const postStudent = async (req, res) => {
     try {
-        let sql = 'INSERT INTO students (first_name, last_name, group_id)' +
+        let sql = 'INSERT INTO students (first_name, last_name, group_id, year_of_admission)' +
                 'VALUES ("' + req.body.first_name + '", "'+
                 req.body.last_name + ' ", "' +
-                req.body.group_id + '")';
+                req.body.group_id + ' ", "' +
+                req.body.year_of_admission + '")';
         console.log(sql);
         let [result] = await pool.query(sql);   
         console.log(result);
@@ -48,14 +47,18 @@ const putStudent = async (req, res) => {
         let params = [req.body.first_name,
                     req.body.last_name,
                     req.body.group_id,
+                    req.body.year_of_admission,
                     req.body.student_id];
 
-        let sql = 'UPDATE students SET first_name = COALESCE(?, first_name)' +
-                'last_name = COALESCE(?, last_name),' +
-                'group_id = COALESCE(?, group_id) WHERE student_id = ?';
+        let sql = 'UPDATE students SET first_name = COALESCE(?, first_name), ' +
+        'last_name = COALESCE(?, last_name), ' +
+        'group_id = COALESCE(?, group_id), ' +
+        'year_of_admission = COALESCE(?, year_of_admission) ' +
+        'WHERE student_id = ?';
+          
 
         console.log(sql);
-        let [result] = await pool.query(params);   
+        let [result] = await pool.query(sql, params);
             res.send(result);
             
     } catch(err){
