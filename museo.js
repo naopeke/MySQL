@@ -153,11 +153,11 @@ console.log(insertResult5);
 //!1
 // SELECT lending.lending_id, lending.artifact_id, artifacts.title,  exhibition.location, lending.return_deadline, lending.borrower_first_name, lending.borrower_last_name, lending.borrower_email   
 // FROM museum.lending
-// LEFT JOIN artifacts ON lending.artifact_id =artifacts.artifact_id 
-// LEFT JOIN exhibition ON artifacts.exhibition_id = exhibition.exhibition_id 
+// JOIN artifacts ON lending.artifact_id =artifacts.artifact_id 
+// JOIN exhibition ON artifacts.exhibition_id = exhibition.exhibition_id 
 // GROUP BY lending.lending_id, lending.artifact_id, artifacts.title, exhibition.location 
 
-let  consulta1= "SELECT lending.lending_id, lending.artifact_id, artifacts.title,  exhibition.location, lending.return_deadline, lending.borrower_first_name, lending.borrower_last_name, lending.borrower_email FROM museum.lending LEFT JOIN artifacts ON lending.artifact_id =artifacts.artifact_id LEFT JOIN exhibition ON artifacts.exhibition_id = exhibition.exhibition_id GROUP BY lending.lending_id, lending.artifact_id, artifacts.title, exhibition.location ;";
+let  consulta1= "SELECT lending.lending_id, lending.artifact_id, artifacts.title,  exhibition.location, lending.return_deadline, lending.borrower_first_name, lending.borrower_last_name, lending.borrower_email FROM museum.lending JOIN artifacts ON lending.artifact_id =artifacts.artifact_id JOIN exhibition ON artifacts.exhibition_id = exhibition.exhibition_id;";
 let [resp1] = await connection.query(consulta1);
 console.log('consulta1');
 console.log(resp1);
@@ -167,11 +167,11 @@ console.log(resp1);
 //!2
 // SELECT exhibition.location, COUNT(*) AS num_artifacts
 // FROM museum.artifacts
-// RIGHT JOIN exhibition ON artifacts.exhibition_id = exhibition.exhibition_id
+// JOIN exhibition ON artifacts.exhibition_id = exhibition.exhibition_id
 // GROUP BY exhibition.location 
 // ORDER BY num_artifacts DESC;
 
-let  consulta2= "SELECT exhibition.location, COUNT(*) AS num_artifacts FROM museum.artifacts RIGHT JOIN exhibition ON artifacts.exhibition_id = exhibition.exhibition_id GROUP BY exhibition.location ORDER BY num_artifacts DESC;";
+let  consulta2= "SELECT exhibition.location, COUNT(*) AS num_artifacts FROM museum.artifacts JOIN exhibition ON artifacts.exhibition_id = exhibition.exhibition_id GROUP BY exhibition.location ORDER BY num_artifacts DESC;";
 let [resp2] = await connection.query(consulta2);
 console.log('consulta2');
 console.log(resp2);
